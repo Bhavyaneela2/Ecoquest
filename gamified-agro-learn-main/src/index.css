@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ecoQuest Village Theme Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Village Theme Colors - Warm beige cream background */
+    --background: 45 20% 96%;
+    --foreground: 25 15% 15%;
+    
+    /* Village Theme Extensions */
+    --village-cream: 45 25% 94%;
+    --village-light: 45 20% 88%;
+    --village-dark: 25 15% 15%;
+    --village-muted: 25 10% 45%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 25 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 15% 15%;
+
+    /* Village Green - Primary */
+    --primary: 120 40% 35%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 120 35% 45%;
+    --primary-dark: 120 45% 25%;
+
+    /* Sunny Yellow - Secondary */
+    --secondary: 48 95% 70%;
+    --secondary-foreground: 25 15% 15%;
+    --secondary-light: 48 95% 80%;
+    --secondary-dark: 48 95% 60%;
+
+    /* Sky Blue - Accent */
+    --accent: 200 80% 65%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 200 70% 75%;
+    --accent-dark: 200 85% 55%;
+
+    /* Earth Tones */
+    --earth-brown: 30 25% 45%;
+    --earth-light: 30 20% 85%;
+    --earth-dark: 30 30% 25%;
+
+    /* Gamification Colors */
+    --success: 140 60% 50%;
+    --success-light: 140 50% 70%;
+    --warning: 45 100% 60%;
+    --error: 0 70% 55%;
+    --info: 210 75% 65%;
+
+    /* UI Elements */
+    --muted: 45 15% 92%;
+    --muted-foreground: 25 10% 45%;
+    --border: 45 20% 85%;
+    --input: 0 0% 100%;
+    --ring: 120 40% 35%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-village: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-sunny: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-sky: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
+    --gradient-earth: linear-gradient(135deg, hsl(var(--earth-brown)), hsl(var(--earth-light)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-light)));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(var(--primary) / 0.15);
+    --shadow-float: 0 12px 40px -12px hsl(var(--primary) / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-fredoka;
+  }
+}
+
+@layer components {
+  /* Village-themed component styles */
+  .village-card {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-card)] border border-border/50;
+  }
+
+  .village-button {
+    @apply inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300;
+    @apply hover:scale-105 active:scale-95;
+  }
+
+  .village-input {
+    @apply flex h-12 w-full rounded-xl border border-input bg-input px-4 py-2;
+    @apply text-sm ring-offset-background file:border-0 file:bg-transparent;
+    @apply file:text-sm file:font-medium placeholder:text-muted-foreground;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+    @apply focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Game & Interactive Elements */
+  .bounce-on-hover {
+    @apply transition-transform duration-200 hover:scale-110 cursor-pointer;
+  }
+
+  .pulse-glow {
+    @apply animate-pulse shadow-[0_0_20px_hsl(var(--accent)/0.5)];
+  }
+
+  .village-progress {
+    @apply bg-muted rounded-full overflow-hidden;
+  }
+
+  .village-progress-bar {
+    @apply h-full bg-gradient-to-r from-[hsl(var(--success))] to-[hsl(var(--success-light))];
+    @apply transition-all duration-500 ease-out;
+  }
+
+  /* Avatar & Character Styles */
+  .avatar-container {
+    @apply relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20;
+    @apply shadow-[var(--shadow-soft)] transition-all duration-300;
+  }
+
+  .avatar-container:hover {
+    @apply scale-110 border-primary shadow-[var(--shadow-float)];
+  }
+
+  /* Gamification Elements */
+  .coin {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded-full;
+    @apply bg-gradient-to-br from-[hsl(var(--secondary))] to-[hsl(var(--secondary-dark))];
+    @apply text-xs font-bold text-[hsl(var(--secondary-foreground))];
+    @apply shadow-[0_2px_8px_hsl(var(--secondary)/0.3)];
+  }
+
+  .badge {
+    @apply inline-flex items-center justify-center px-3 py-1 rounded-full;
+    @apply bg-gradient-to-r from-[hsl(var(--accent))] to-[hsl(var(--accent-dark))];
+    @apply text-xs font-medium text-[hsl(var(--accent-foreground))];
+    @apply shadow-[0_2px_8px_hsl(var(--accent)/0.3)];
+  }
+
+  /* Learning Journey Map */
+  .map-path {
+    @apply stroke-[hsl(var(--earth-brown))] stroke-2 fill-none;
+    @apply drop-shadow-sm;
+  }
+
+  .map-milestone {
+    @apply w-12 h-12 rounded-full flex items-center justify-center;
+    @apply bg-gradient-to-br from-[hsl(var(--primary-light))] to-[hsl(var(--primary-dark))];
+    @apply text-white font-bold shadow-[var(--shadow-card)];
+    @apply transition-all duration-300 cursor-pointer;
+  }
+
+  .map-milestone:hover {
+    @apply scale-125 shadow-[var(--shadow-float)];
+  }
+
+  .map-milestone.completed {
+    @apply bg-gradient-to-br from-[hsl(var(--success))] to-[hsl(var(--success-light))];
+  }
+
+  .map-milestone.locked {
+    @apply bg-muted border-2 border-border text-muted-foreground;
+    @apply cursor-not-allowed hover:scale-100;
+  }
+}
